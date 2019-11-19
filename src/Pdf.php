@@ -40,7 +40,7 @@ abstract class Pdf
 
     public function view()
     {
-        return config('pdf.directory') . '.' . $this->viewName();
+        return config('pdf.views') . '.' . $this->viewName();
     }
 
     public function viewName()

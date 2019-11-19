@@ -5,6 +5,6 @@ return [
     /*
      * Pdf views directory
      */
-    'directory' => 'pdf',
+    'views' => 'pdf',
 
 ];
