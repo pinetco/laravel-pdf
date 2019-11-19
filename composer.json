@@ -1,5 +1,6 @@
 {
     "name": "pinetco/pdf",
+    "description": "Laravel Pdf Generator",
     "license": "MIT",
     "authors": [
         {
