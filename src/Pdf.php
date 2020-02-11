@@ -43,6 +43,13 @@ abstract class Pdf
         return config('pdf.views') . '.' . $this->viewName();
     }
 
+    public function locale($locale)
+    {
+        app()->setLocale($locale);
+
+        return $this;
+    }
+
     public function viewName()
     {
         if (isset($this->view)) {
