@@ -20,7 +20,7 @@ abstract class Pdf
     {
         $dompdf = new Dompdf;
 
-        $dompdf->setPaper($this->paperSize, $this->orientation);
+        $dompdf->setPaper($this->getPaperSize(), $this->getOrientation());
 
         $dompdf->loadHtml($this->pdf()->render());
 
