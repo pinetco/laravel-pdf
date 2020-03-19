@@ -10,11 +10,17 @@ abstract class Pdf
 {
     protected $view;
 
+    protected $paperSize = 'letter';
+
+    protected $orientation = 'portrait';
+
     public abstract function data();
 
     public function download()
     {
         $dompdf = new Dompdf;
+
+        $dompdf->setPaper($this->paperSize, $this->orientation);
 
         $dompdf->loadHtml($this->pdf()->render());
 
@@ -26,6 +32,30 @@ abstract class Pdf
             'Content-Transfer-Encoding' => 'binary',
             'Content-Type'              => 'application/pdf',
         ]);
+    }
+
+    public function setPaperSize($paperSize = 'letter')
+    {
+        $this->paperSize = $paperSize;
+
+        return $this;
+    }
+
+    public function setOrientation($orientation = 'portrait')
+    {
+        $this->orientation = $orientation;
+
+        return $this;
+    }
+
+    public function getPaperSize()
+    {
+        return $this->paperSize;
+    }
+
+    public function getOrientation()
+    {
+        return $this->orientation;
     }
 
     public function render()
