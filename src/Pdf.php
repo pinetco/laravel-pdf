@@ -3,6 +3,7 @@
 namespace Pinetco\Pdf;
 
 use Dompdf\Dompdf;
+use Dompdf\Options;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -18,6 +19,9 @@ abstract class Pdf
 
     public function download()
     {
+        $options = new Options();
+        $options->setIsRemoteEnabled(true);
+
         $dompdf = new Dompdf;
 
         $dompdf->setPaper($this->getPaperSize(), $this->getOrientation());
